@@ -1,0 +1,12 @@
+esptool.py --port /dev/ttyUSB0 erase_flash
+
+esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=detect -fm dio 0 esp8266-20191220-v1.12.bin 
+
+picocom -b 115200 -s msend /dev/ttyUSB0
+
+WebRepl password: p@Kakn3ma
+default ap wifi password: micropythoN
+
+pin = machine.Pin(4, machine.Pin.OUT)
+
+./webrepl_cli.py -p p@Kakn3ma ../clock.py 192.168.0.14:/clock.py
